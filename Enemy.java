@@ -10,7 +10,7 @@ public class Enemy {
     public Enemy (int x,int y) {
         this.x = x;
         this.y = y;
-        this.hp = (int) (Math.random()*10)+35;
+        this.hp = (int) (Math.random()*10)+39;
         this.mp = (int) (Math.random()*5)+22;
         this.attack = (int) (Math.random()*5)+1;
         this.magic = (int) (Math.random()*5)+1;
