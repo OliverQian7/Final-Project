@@ -20,6 +20,8 @@ public class Enemy {
     public void draw (Graphics g) {
         g.setColor(Color.CYAN);
         g.fillRect(x,y,150,150);
+        g.setColor(Color.black);
+        g.drawString("HP"+this.hp+"/50", x+75, y+75);
     }
     
     public void attack1 (Player p) {

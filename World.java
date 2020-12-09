@@ -2,6 +2,8 @@ package finalproject;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class World {
     private final int LENGTH = 1400;
@@ -15,7 +17,7 @@ public class World {
         this.enemy = new Enemy(1150,100);
     }
     
-    public void draw(Graphics g) {
+    public void draw(Graphics g,KeyEvent e) {
         
         if (player.getHp() >0 && enemy.getHp()>0) {
             player.draw(g);
@@ -26,31 +28,25 @@ public class World {
             }
             else if (turn%2 == 1) {
                 
-                player.attack1(enemy);
+                if (e.getKeyCode()==87) {
+                    player.attack1(enemy);
+                }
                 turn ++;
             }
         }
         else if (player.getHp()<=0) {
             g.setColor(Color.red);
             g.fillRect(213,230,344,233);
+           
+            g.setColor(Color.black);
+            g.drawString("YOU LOSE!",313,280);
         }
         else if (enemy.getHp()<=0) {
             g.setColor(Color.green);
             g.fillRect(123,123, 238, 283);
+            g.setColor(Color.black);
+            g.drawString("YOU WIN!", 288,333);
         }
     }
     
-   // public void turns(){
-//        for (int i = 0; i < 100; i++)
-  //          if (player.getHp()>0 && enemy.getHp() > 0) {
-      //          enemy.attack1(player);
-        //        i++;
-          //  }
-            //else if (player.getHp()<= 0) {
-              //  System.out.println("you lose!");
-            //}
-            //else if (enemy.getHp() <= 0) {
-              //  System.out.println("you win!");
-            //}
-    //}
 }

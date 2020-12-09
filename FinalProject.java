@@ -22,14 +22,14 @@ private Timer timer;
     }
     
      @Override
-     public void paintComponent(Graphics g) {
+     public void paintComponent(Graphics g,KeyEvent e ) {
         super.paintComponent(g);
-        
+      
         frameCount++;
         
         this.setBackground(Color.BLACK);		
        
-        world.draw(g);
+        world.draw(g,e);
     }
      
     private class ScheduleTask extends TimerTask {

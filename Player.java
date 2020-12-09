@@ -20,6 +20,8 @@ public class Player {
     public void draw(Graphics g) {
         g.setColor(Color.ORANGE);
         g.fillRect(x, y, 150, 150);
+        g.setColor(Color.black);
+        g.drawString("HP:"+this.hp+"/50", x+75, y+75);
     }
     public void attack1(Enemy e) {
         e.setHp(e.getHp() - (int)(5*(1+attack/10)*(1-e.getDefence()/10)));
