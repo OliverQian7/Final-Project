@@ -1,6 +1,7 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class Enemy {
@@ -21,7 +22,9 @@ public class Enemy {
         g.setColor(Color.CYAN);
         g.fillRect(x,y,150,150);
         g.setColor(Color.black);
-        g.drawString("HP"+this.hp+"/50", x+75, y+75);
+         g.setFont(new Font ("Times Roman", Font.PLAIN, 20));
+        g.drawString("HP: "+this.hp+"/50", x+50, y+50);
+        g.drawString("MP: "+this.mp, x+50, y+70);
     }
     
     public void attack1 (Player p) {

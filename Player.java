@@ -1,7 +1,10 @@
 package finalproject;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Player {
     private int x,y,hp, mp, attack, magic, defence;
@@ -20,11 +23,18 @@ public class Player {
     public void draw(Graphics g) {
         g.setColor(Color.ORANGE);
         g.fillRect(x, y, 150, 150);
+         g.setFont(new Font ("Times Roman", Font.PLAIN, 20));
         g.setColor(Color.black);
-        g.drawString("HP:"+this.hp+"/50", x+75, y+75);
+        g.drawString("HP: "+this.hp+"/50", x+50, y+50);
+        g.drawString("MP: "+this.mp, x+50, y+70);
     }
     public void attack1(Enemy e) {
         e.setHp(e.getHp() - (int)(5*(1+attack/10)*(1-e.getDefence()/10)));
+    }
+    public void handleInputs (KeyEvent e, Enemy enemy) {
+        if (e.getKeyCode()==87) {
+            attack1(enemy);
+        }
     }
 
     public int getX() {

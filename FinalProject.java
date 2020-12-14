@@ -21,26 +21,34 @@ private Timer timer;
         timer.scheduleAtFixedRate(new ScheduleTask(), 100, 1000/30);
     }
     
+
      @Override
-     public void paintComponent(Graphics g,KeyEvent e ) {
+     public void paintComponent(Graphics g){
         super.paintComponent(g);
       
         frameCount++;
         
         this.setBackground(Color.BLACK);		
        
-        world.draw(g,e);
+        world.draw(g);
+     
     }
      
+     public void dostuff(KeyEvent e) {
+         frameCount++;
+         world.handleTurns(e);
+     }
+   
     private class ScheduleTask extends TimerTask {
 
         @Override
         public void run() {
             repaint();
         }
+        
     }
     public static void main(String[] args) {
-         JFrame j = new JFrame("Blob Sim");
+         JFrame j = new JFrame("Game");
         Container c = new FinalProject();
         j.add(c);
         j.pack();
@@ -55,6 +63,7 @@ private Timer timer;
      @Override
     public void keyPressed(KeyEvent e) {
         System.out.printf("\nKeyCode: %d was pressed",e.getKeyCode());
+        world.handleTurns(e);
     }
     
      @Override
