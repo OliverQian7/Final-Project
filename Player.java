@@ -14,7 +14,7 @@ public class Player {
         this.x = x;
         this.y = y;
         this.hp = (int) (Math.random()*10)+40;
-        this.mp = (int) (Math.random()*5)+25;
+        this.mp = (int) (Math.random()*5)+15;
         this.attack = (int) (Math.random()*5)+1;
         this.magic = (int) (Math.random()*5)+1;
         this.defence = (int) (Math.random()*5) +1;
@@ -31,12 +31,24 @@ public class Player {
     public void attack1(Enemy e) {
         e.setHp(e.getHp() - (int)(5*(1+attack/10)*(1-e.getDefence()/10)));
     }
-    public void handleInputs (KeyEvent e, Enemy enemy) {
-        if (e.getKeyCode()==87) {
-            attack1(enemy);
+    public void attack2(Enemy e) {
+        if (mp>=5) {
+            e.setHp(e.getHp() - (int)(10*(1+attack/10)*(1-e.getDefence()/10)));
+            mp -= 5;
+        }   
+    }
+    public void magicAttack(Enemy e) {
+        if (mp>=7) {
+            e.setHp(e.getHp() - (int)(10*(1.5+magic/10)*(1-e.getDefence()/10)));
+            mp -= 7;
         }
     }
-
+    public void heal() {
+        if (mp>=10) {
+            hp = hp + (int)(10*(1+magic/10)); 
+    
+        }
+    }
     public int getX() {
         return x;
     }

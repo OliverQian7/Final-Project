@@ -30,6 +30,24 @@ public class Enemy {
     public void attack1 (Player p) {
        p.setHp(p.getHp() - (int)(5*(1+attack/10)*(1-p.getDefence()/10)));
     }
+     public void attack2(Player p) {
+        if (mp>=5) {
+            p.setHp(p.getHp() - (int)(10*(1+attack/10)*(1-p.getDefence()/10)));
+            mp -= 5;
+        }   
+    }
+    public void magicAttack(Player p) {
+        if (mp>=7) {
+            p.setHp(p.getHp() - (int)(10*(1.5+magic/10)*(1-p.getDefence()/10)));
+            mp -= 7;
+        }
+    }
+    public void heal() {
+        if (mp>=10) {
+            hp = hp + (int)(10*(1+magic/10)); 
+    
+        }
+    }
 
     public int getX() {
         return x;
