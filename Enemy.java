@@ -23,7 +23,7 @@ public class Enemy {
         g.fillRect(x,y,150,150);
         g.setColor(Color.black);
          g.setFont(new Font ("Times Roman", Font.PLAIN, 20));
-        g.drawString("HP: "+this.hp+"/50", x+50, y+50);
+        g.drawString("HP: "+this.hp, x+50, y+50);
         g.drawString("MP: "+this.mp, x+50, y+70);
     }
     
@@ -45,7 +45,7 @@ public class Enemy {
     public void heal() {
         if (mp>=10) {
             hp = hp + (int)(10*(1+magic/10)); 
-    
+            mp -= 10;
         }
     }
 
