@@ -88,7 +88,7 @@ public class World {
                     enemy.heal();
                 }
                }
-               if (enemy.getMp()<10&&enemy.getMp()>7) {
+               else if (enemy.getMp()<10&&enemy.getMp()>7) {
                    int g = (int) (Math.random() * 3);
                    if (g==0) {
                        enemy.attack1(player);
@@ -100,7 +100,7 @@ public class World {
                        enemy.magicAttack(player);
                    }
                }
-               if (enemy.getMp()<7&&enemy.getMp()>5) {
+               else if (enemy.getMp()<7&&enemy.getMp()>5) {
                   int f = (int)(Math.random() * 2);
                   if (f==0) {
                       enemy.attack1(player);
@@ -109,7 +109,7 @@ public class World {
                       enemy.attack2(player);
                   }
                }
-               if (enemy.getMp()<5) {
+               else if (enemy.getMp()<5) {
                    enemy.attack1(player);
                }
             }

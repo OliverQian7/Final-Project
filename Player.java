@@ -25,8 +25,12 @@ public class Player {
         g.fillRect(x, y, 150, 150);
          g.setFont(new Font ("Times Roman", Font.PLAIN, 20));
         g.setColor(Color.black);
+        g.drawString("YOU", x + 55, y+30);
         g.drawString("HP: "+this.hp, x+50, y+50);
         g.drawString("MP: "+this.mp, x+50, y+70);
+        g.drawString("Attack:"+attack, x+45, y+90);
+        g.drawString("Defence:"+defence, x+45, y+110);
+        g.drawString("Magic:"+magic, x + 45, y +130);
     }
     public void attack1(Enemy e) {
         e.setHp(e.getHp() - (int)(5*(1+attack/10)*(1-e.getDefence()/10)));
@@ -39,13 +43,13 @@ public class Player {
     }
     public void magicAttack(Enemy e) {
         if (mp>=7) {
-            e.setHp(e.getHp() - (int)(10*(1.5+magic/10)*(1-e.getDefence()/10)));
+            e.setHp(e.getHp() - (int)(10*(1.5+magic/10)));
             mp -= 7;
         }
     }
     public void heal() {
         if (mp>=10) {
-            hp = hp + (int)(10*(1+magic/10)); 
+            hp = hp + (int)(15*(1+magic/10)); 
             mp -=10;
         }
     }
